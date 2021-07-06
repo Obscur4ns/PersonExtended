@@ -1,34 +1,19 @@
-package personExtended; //name,age,colour,speak()
+package personExtended;
 
-public class Dog {
+public class Dog extends Pet {
 
-	public String name;
-	public int age;
-	public String colour;
+	public Dog(String name, int age, String colour, String breed, int noOfLegs, boolean domesticated) {
+		super(name, age, colour, breed, noOfLegs, domesticated);
 
-	public Dog() {
+	}
+
+	@Override
+	public void communicate() {
 		System.out.println("Omae wa mou shinderou!");
 	}
 
-	public Dog(String name, int age, String colour) {
-		this.name = name;
-		this.age = age;
-		this.colour = colour;
-		System.out.println(this);
-
-		Dog dog = new Dog("Akira", 4, "Black");
-		Dog dog2 = new Dog("Gaijin", 3, "White");
-		Dog dog3 = new Dog("Musashi", 2, "Black & White");
-	}
-
-	public void Print() {
-		System.out.print("Name: ");
-		System.out.println(this.name);
-		System.out.print("Age: ");
-		System.out.println(this.age);
-		System.out.print("Colour: ");
-		System.out.println(this.colour);
-
+	public void Fetch() {
+		System.out.println("Watashi wa anata no shimo be ni wa narimasen.");
 	}
 
 }

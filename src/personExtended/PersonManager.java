@@ -1,4 +1,4 @@
-package personExtended; //listperson,addperson(),removeperson(),findpersonbyname()
+package personExtended;
 
 import java.util.ArrayList;
 
@@ -11,19 +11,25 @@ public class PersonManager {
 
 	}
 
-	public void removePerson() {
-		people.remove(null);
+	public void removePerson(Person person) {
+		this.people.remove(person);
 	}
 
-	public void findPerson(String name) {
-		for (int i = 0; i < people.size(); i++) {
-			if (people.get(i).name == name) {
-				people.get(i).Print();
-
-				return;
+	public Person findByName(String name) {
+		for (Person person : this.people) {
+			if (person.getName() == name) {
+				return person;
 			}
 		}
+		return null;
 
 	}
 
+	public void print() {
+		System.out.println("Manager: ");
+		System.out.println("People: ");
+		for (Person p : this.people) {
+			p.Print();
+		}
+	}
 }

@@ -4,20 +4,49 @@ import java.util.ArrayList;
 
 public class Person {
 
-	public String name;
-	public int age;
-	public String job_title;
-	public ArrayList<Cat> cats = new ArrayList<>();
-	public ArrayList<Dog> dogs = new ArrayList<>();
+	private String name;
+	private int age;
+	private String job_title;
+	private ArrayList<Pet> pets = new ArrayList<>();
 
-	public Person(String name, int age, String job_title, ArrayList<Cat> cat, ArrayList<Dog> dog) {
-		this.name = name;
-		this.age = age;
-		this.job_title = job_title;
-		this.cats = cat;
-		this.dogs = dog;
-		System.out.println(this);
+	public Person(String name, int age, String job_title) {
+		super();
+		this.setName(name);
+		this.setAge(age);
+		this.setJobTitle(job_title);
+
+	}
+
+	public Person() {
 		System.out.println("I drink your milkshake!");
+	}
+
+	public int getAge() {
+		return this.age;
+	}
+
+	public void setAge(int age) {
+		if (age > 0 && age < 122) {
+			this.age = age;
+		} else {
+			System.out.println("Invalid age: " + age);
+		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getJobTitle() {
+		return job_title;
+	}
+
+	public void setJobTitle(String job_title) {
+		this.job_title = job_title;
 	}
 
 	public void Print() {
@@ -27,29 +56,21 @@ public class Person {
 		System.out.println(this.age);
 		System.out.print("Job Title ");
 		System.out.println(this.job_title);
-		System.out.print("Cat: ");
-		System.out.println(this.cats);
-		System.out.print("Dog: ");
-		System.out.println(this.dogs);
+
+		System.out.print("Pets: [");
+		for (Pet pet : this.pets) {
+			pet.Print();
+		}
+		System.out.println("]");
 	}
 
-	public void addCat(Cat cat) {
-		this.cats.add(cat);
-
-	}
-
-	public void removeCat(Cat cat) {
-		this.cats.remove(cat);
-	}
-
-	public void addDog(Dog dog) {
-
-		this.dogs.add(dog);
+	public void addPet(Pet pet) {
+		this.pets.add(pet);
 
 	}
 
-	public void removeDog(Dog dog) {
-		dogs.remove(dog);
+	public void removeCat(Pet pet) {
+		this.pets.remove(pet);
 	}
 
 }
